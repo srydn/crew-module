@@ -1,0 +1,13 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.span-text-color {
+  color: rgb(55, 68, 76);
+}
+
+.mat-form-field {
+  margin-top: 20px;
+  width: 85px;
+}
+
