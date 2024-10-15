@@ -1,0 +1,27 @@
+.tiles {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 1px 0px 0px;
+  font-size: smaller;
+  text-align: center;
+}
+.headers {
+  border-style: solid;
+  border-color: black;
+  border-width: 0px 1px 0px 0px;
+  background-color: rgb(206, 214, 215);;
+}
+
+.mat-grid-list {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  margin: 50px 120px 20px 20px;
+  width: 80%;
+
+}
+
+.div-wrap {
+  display: flex;
+  justify-content: right;
+}

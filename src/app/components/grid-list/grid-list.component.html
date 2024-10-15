@@ -1,0 +1,39 @@
+
+<div class="div-wrap">
+  <mat-grid-list cols="10" class="mat-grid-list" rowHeight="50px">
+
+    <mat-grid-tile class="headers"></mat-grid-tile>
+    <mat-grid-tile class="headers">First Name</mat-grid-tile>
+    <mat-grid-tile class="headers">Last Name</mat-grid-tile>
+    <mat-grid-tile class="headers"> Nationality</mat-grid-tile>
+    <mat-grid-tile class="headers">Title</mat-grid-tile>
+    <mat-grid-tile class="headers">Days on Board</mat-grid-tile>
+    <mat-grid-tile class="headers">Daily Rate</mat-grid-tile>
+    <mat-grid-tile class="headers">Currency</mat-grid-tile>
+    <mat-grid-tile class="headers">Total Income</mat-grid-tile>
+    <mat-grid-tile class="headers">Certificates</mat-grid-tile>
+
+    @for(tile of crewDetailsList; track tile; let i = $index){
+
+    <mat-grid-tile class="tiles">
+      <button mat-mini-fab
+        aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+    </mat-grid-tile>
+    <mat-grid-tile class="tiles">{{tile.firstName}}</mat-grid-tile>
+    <mat-grid-tile class="tiles">{{tile.lastName}}</mat-grid-tile>
+    <mat-grid-tile class="tiles"> {{tile.nationality}}</mat-grid-tile>
+    <mat-grid-tile class="tiles"> {{tile.title}}</mat-grid-tile>
+    <mat-grid-tile class="tiles"> {{tile.daysOnBoard}}</mat-grid-tile>
+    <mat-grid-tile class="tiles"> {{tile.dailyRate}}</mat-grid-tile>
+    <mat-grid-tile class="tiles"> {{tile.currency}}</mat-grid-tile>
+    <mat-grid-tile class="tiles"> {{tile.totalIncome}}</mat-grid-tile>
+    <mat-grid-tile class="tiles"> {{tile.certificates}}</mat-grid-tile>
+
+    }
+
+  </mat-grid-list>
+
+</div>
