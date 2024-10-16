@@ -1,0 +1,115 @@
+<mat-toolbar class="mat-toolbar">
+  <span class="toolbar-title"> {{getPopUpTitle()}}</span>
+
+  <button mat-button (click)="onClose()" tabindex="-1">
+
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+<form [formGroup]="service.formCrew" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="600px">
+
+    <mat-grid-tile>
+      <div class="controls-container">
+
+        <input type="hidden" formControlName="$id">
+
+        <mat-form-field appearance="outline">
+          <input formControlName="firstName" matInput placeholder="First Name*">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input formControlName="lastName" matInput placeholder="Last Name*">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-select appearance="outline" formControlName="nationality"
+            placeholder="Nationality*">
+            @for (nation of service.nationalityList; track nation) {
+            <mat-option style="background-color: rgb(226, 245, 253);"
+              [value]="nation">{{nation}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="title" placeholder="Title*">
+            @for (title of service.titleList; track title) {
+            <mat-option style="background-color: rgb(226, 245, 253);"
+              [value]="title">{{title}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input formControlName="daysOnBoard" matInput
+            placeholder="Days on Board*">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <input formControlName="dailyRate" matInput placeholder="Daily Rate*">
+        </mat-form-field>
+
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="controls-container">
+
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="currency" matInput
+            placeholder="Currency*">
+            <mat-option
+              value="€"
+              style="background-color: rgb(226, 245, 253);">€</mat-option>
+            <mat-option
+              value="$"
+              style="background-color: rgb(226, 245, 253);">$</mat-option>
+            <mat-option
+              value="₺"
+              style="background-color: rgb(226, 245, 253);">₺</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <input formControlName="totalIncome" matInput
+            placeholder="Total Income*">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="certificates" matInput
+            placeholder="Certificate">
+            @for(certificate of certificateService.certificateTypesList; track
+            certificate){
+            <mat-option
+              [value]="certificate">{{certificate.certificateType}}</mat-option>}
+          </mat-select>
+
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Choose issue date</mat-label>
+          <input formControlName="issueDate" matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Choose expiry date</mat-label>
+          <input formControlName="expiryDate" matInput
+            [matDatepicker]="picker2">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker2">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-flat-button type="submit"
+          [disabled]="service.formCrew.invalid">Submit</button>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+</form>

@@ -1,5 +1,13 @@
+export interface Certificate {
+  $id:number,
+  description:string,
+  certificateType: string;
+  issueDate: Date | string;
+  expiryDate: Date |string;
+}
+
 export interface CrewDetails{
-  id:number,
+  $id:number,
   firstName:string,
   lastName:string,
   nationality:string,
@@ -8,5 +16,7 @@ export interface CrewDetails{
   dailyRate:string,
   currency:string,
   totalIncome:string,
-  certificates:string
+  issueDate: Date;
+  expiryDate: Date;
+  certificates:Certificate[]
 }

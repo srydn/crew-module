@@ -1,0 +1,40 @@
+<div style="width: 500px; margin: 50px auto;">
+  <mat-tab-group>
+    <mat-tab label="Card">
+      <mat-card class="mat-card">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>person</mat-icon>
+          <mat-card-title>{{crewCard.firstName}}
+            {{crewCard.lastName}}</mat-card-title>
+          <mat-card-subtitle>{{crewCard.title}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>First Name: {{crewCard.firstName}}</p>
+          <p>Last Name: {{crewCard.lastName}}</p>
+          <p>Nationality: {{crewCard.nationality}}</p>
+          <p>Title: {{crewCard.title}}</p>
+          <p>Days on Board: {{crewCard.daysOnBoard}}</p>
+          <p>Daily Rate: {{crewCard.dailyRate}}</p>
+          <p>Currency: {{crewCard.currency}}</p>
+          <p>Total Income: {{crewCard.totalIncome}}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+
+    <mat-tab label="Certificates">
+      <mat-card class="mat-card">
+        <mat-card-content>
+          @for(cert of crewCard.certificates; track cert) {
+          <ul>
+            <li>Certificate Type: {{cert.certificateType}}</li>
+            <li>Issue Date: {{cert.issueDate.toISOString().split("T")[0]}}</li>
+            <li>Expiry Date: {{cert.expiryDate.toISOString().split("T")[0]}}</li>
+          </ul>
+          <hr>
+          }
+        </mat-card-content>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</div>
